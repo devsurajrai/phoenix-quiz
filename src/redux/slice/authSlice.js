@@ -5,19 +5,20 @@ import axios from "axios";
 export const loginUser = createAsyncThunk(
   "login/login-user",
   async ({ email, password }) => {
-    const response = axios.post("/user/login", {
+    const response = await axios.post("/user/login", {
       email,
       password,
     });
+    console.log(response.data);
     localStorage.setItem("token", response.data.encodedToken);
-    return response.data.encodedToken;
+    return response.data;
   }
 );
 // api call for creating user
 export const createUser = createAsyncThunk(
   "auth/create-user",
   async ({ email, password, firstName, lastName }) => {
-    const response = axios.post("/user/signup", {
+    const response = await axios.post("/user/signup", {
       firstName,
       lastName,
       email,

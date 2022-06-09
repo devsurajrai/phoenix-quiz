@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 
 import { sample_requests } from "./backend/sample-requests";
 import { Header } from "./Components/components";
+import { Signup } from "./Pages/Signup.jsx";
+import { Login } from "./Pages/Login.jsx";
 
 function App() {
   return (
@@ -11,9 +13,11 @@ function App() {
       <Header />
       <Routes>
         <Route
-          pathname="/twopirest"
+          path="/testAPI"
           element={<TwopiRest preset={sample_requests} />}
-        ></Route>
+        />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

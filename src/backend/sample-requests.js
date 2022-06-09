@@ -11,8 +11,8 @@ export const sample_requests = [
     url: "/user/signup",
     query_str: "",
     body: {
-      fname: "Shiv",
-      lname: "Raj",
+      firstName: "Shiv",
+      lastName: "Raj",
       username: "sr11",
       dob: "11-12-2012",
       email: "Shiv@e.com",

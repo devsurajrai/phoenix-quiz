@@ -1,10 +1,10 @@
-import { getCurrentDateTime } from '../utils';
+import { getCurrentDateTime } from "../utils";
 
 export const users = [
   {
     id: "666",
-    fname: "Shivam",
-    lname: "Pandey",
+    firstName: "Shivam",
+    lastName: "Pandey",
     username: "sjtgshivam",
     password: "acheDin",
     dob: "1997-03-07",
@@ -73,8 +73,8 @@ export const users = [
   },
   {
     id: "667",
-    fname: "Rajeev",
-    lname: "Verma",
+    firstName: "Rajeev",
+    lastName: "Verma",
     username: "VermaRajeev",
     password: "acheDinn",
     dob: "1998-04-09",
@@ -143,8 +143,8 @@ export const users = [
   },
   {
     id: "611",
-    fname: "Lakshmi",
-    lname: "",
+    firstName: "Lakshmi",
+    lastName: "",
     username: "lakshmi67",
     password: "keyLobster",
     dob: "1999-04-08",
@@ -213,8 +213,8 @@ export const users = [
   },
   {
     id: "6155",
-    fname: "Snehal",
-    lname: "Sharma",
+    firstName: "Snehal",
+    lastName: "Sharma",
     username: "snehalSharma",
     password: "toppwd",
     dob: "1997-03-07",
@@ -283,8 +283,8 @@ export const users = [
   },
   {
     id: "68855",
-    fname: "Vikram",
-    lname: "Kochhar",
+    firstName: "Vikram",
+    lastName: "Kochhar",
     username: "vikram",
     password: "blazingD",
     dob: "1999-12-24",
@@ -353,8 +353,8 @@ export const users = [
   },
   {
     id: "78855",
-    fname: "Dhruv",
-    lname: "Pandey",
+    firstName: "Dhruv",
+    lastName: "Pandey",
     username: "dhruvPandey",
     password: "acheDinhai",
     dob: "1993-07-17",
@@ -423,8 +423,8 @@ export const users = [
   },
   {
     id: "788535",
-    fname: "Deepak",
-    lname: "Aggarwal",
+    firstName: "Deepak",
+    lastName: "Aggarwal",
     username: "@DeepAggarwal",
     password: "acheDincomingsoon",
     dob: "1994-09-15",

@@ -1,17 +1,19 @@
-import sign from 'jwt-encode';
-import { Response } from 'miragejs';
-import { v4 as uuid } from 'uuid';
+import sign from "jwt-encode";
+import { Response } from "miragejs";
+import { v4 as uuid } from "uuid";
 
-import {
-  getCurrentDateTime,
-  requiresAuth,
-  userResponse,
-} from '../utils';
+import { getCurrentDateTime, requiresAuth, userResponse } from "../utils";
 
 export const signupHandler = function (schema, request) {
-  const { username, fname, lname, dob, contact, email, password } = JSON.parse(
-    request.requestBody
-  );
+  const {
+    username = "",
+    firstName,
+    lastName,
+    dob = "",
+    contact = "",
+    email,
+    password,
+  } = JSON.parse(request.requestBody);
   try {
     const user = this.db.users.findBy({ username });
     if (user) {
@@ -28,8 +30,8 @@ export const signupHandler = function (schema, request) {
       id,
       username,
       password,
-      fname,
-      lname,
+      firstName,
+      lastName,
       dob,
       contact,
       email,
@@ -44,10 +46,7 @@ export const signupHandler = function (schema, request) {
     };
 
     const createdUser = this.create("user", newUser);
-    const encodedToken = sign(
-      { username: newUser.username },
-      "easyPeasy"
-    );
+    const encodedToken = sign({ username: newUser.username }, "easyPeasy");
     return new Response(
       201,
       {},
@@ -68,9 +67,9 @@ export const signupHandler = function (schema, request) {
 };
 
 export const loginHandler = function (schema, request) {
-  const { username, password } = JSON.parse(request.requestBody);
+  const { email, password } = JSON.parse(request.requestBody);
   try {
-    const user = this.db.users.findBy({ username });
+    const user = this.db.users.findBy({ email });
 
     if (!user) {
       return new Response(
@@ -83,10 +82,7 @@ export const loginHandler = function (schema, request) {
       );
     }
     if (password === user.password) {
-      const encodedToken = sign(
-        { username: user.username },
-        "easyPeasy"
-      );
+      const encodedToken = sign({ username: user.username }, "easyPeasy");
 
       return new Response(
         201,

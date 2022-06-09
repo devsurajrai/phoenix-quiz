@@ -1,18 +1,22 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import TwopiRest from 'twopi-rest';
+import "./App.css";
+import TwopiRest from "twopi-rest";
+import { Routes, Route } from "react-router-dom";
 
-import { sample_requests } from './backend/sample-requests';
+import { sample_requests } from "./backend/sample-requests";
+import { Header } from "./Components/components";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <TwopiRest preset={sample_requests} />
+      <Header />
+      <Routes>
+        <Route
+          pathname="/twopirest"
+          element={<TwopiRest preset={sample_requests} />}
+        ></Route>
+      </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

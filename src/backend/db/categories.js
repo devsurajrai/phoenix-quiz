@@ -31,7 +31,7 @@ export const categories = [
   },
   {
     id: "13",
-    title: "Javascript",
+    title: "JS",
     description:
       "Take this quiz to test your JS skills, each set contains 5 questions having points according to the level you've chosen.",
     image: "http://linuxnatives.net/uploads/seravo/2013/06/JavaScript-logo.png",

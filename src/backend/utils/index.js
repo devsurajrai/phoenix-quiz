@@ -1,14 +1,12 @@
-import jwt_decode from 'jwt-decode';
-import { Response } from 'miragejs';
+import jwt_decode from "jwt-decode";
+import { Response } from "miragejs";
 
 export const requiresAuth = function (request) {
   const encodedToken = request.requestHeaders.authorization;
+
   if (encodedToken === null)
     return new Response(401, {}, { message: "Auth Error" });
-  const decodedToken = jwt_decode(
-    encodedToken,
-    "easyPeasy"
-  );
+  const decodedToken = jwt_decode(encodedToken, "easyPeasy");
   if (decodedToken === null)
     return new Response(401, {}, { message: "Auth Error" });
 

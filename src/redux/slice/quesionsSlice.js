@@ -3,10 +3,17 @@ import axios from "axios";
 
 const getQuestions = createAsyncThunk(
   "questions/getQuestions",
-  async ({ encodedToken, level, category }) => {
+  async ({
+    encodedToken,
+    questionsLevel: level,
+    questionsCategory: category,
+  }) => {
     const config = {
-      authorization: encodedToken,
+      headers: {
+        authorization: encodedToken,
+      },
     };
+    console.log("getQuestions params", encodedToken, level, category);
     const response = await axios.get(
       `/question?tags=${category}&lvl=${level}&length=5`,
       config

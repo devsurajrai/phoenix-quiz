@@ -4,3 +4,6 @@ export { Input } from "./Input.jsx";
 export { SignupMain } from "./SignupMain.jsx";
 export { LoginMain } from "./LoginMain.jsx";
 export { HomeMain } from "./HomeMain.jsx";
+export { PlayQuizMain } from "./PlayQuizMain.jsx";
+export { ResultMain } from "./ResultMain.jsx";
+export { LandingPageMain } from "./LandingPageMain.jsx";

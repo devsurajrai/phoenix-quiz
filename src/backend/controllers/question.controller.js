@@ -1,9 +1,6 @@
-import { Response } from 'miragejs';
+import { Response } from "miragejs";
 
-import {
-  requiresAuth,
-  shuffleArray,
-} from '../utils';
+import { requiresAuth, shuffleArray } from "../utils";
 
 export const getQuestionsHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);

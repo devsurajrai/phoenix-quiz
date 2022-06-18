@@ -24,7 +24,7 @@ const HomeMain = () => {
   const questionsCategoryLevelHandler = (category, level) => {
     disptach(setQuestionsCategory(category));
     disptach(setQuestionsLevel(level));
-    navigate("/play");
+    navigate("/rules");
   };
   return (
     <div>

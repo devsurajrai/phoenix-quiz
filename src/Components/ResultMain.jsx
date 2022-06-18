@@ -26,6 +26,12 @@ const ResultMain = () => {
   return (
     <div className="h-[calc(100vh-4rem)]   w-screen  flex  justify-center  items-center ">
       <section className="bg-[#334E68] h-[90%]  text-white p-20 pb-10 shadow-xl overflow-scroll">
+        <div className="w-full flex justify-start  ">
+          <span className="border-2 border-white p-2 mb-10">
+            {currentGameQuestions[0].tags[0]} : {currentGameQuestions[0].level}
+          </span>
+        </div>
+
         <p className="text-xl font-bold">
           You Answered {score / 10} correct out of 5 questions.
         </p>

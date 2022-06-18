@@ -39,6 +39,12 @@ const PlayQuizMain = () => {
     <div className="h-[calc(100vh-4rem)] w-screen  flex  justify-center  items-center">
       {questions.length !== 0 && (
         <section className="bg-[#334E68] text-white p-20 shadow-xl">
+          <div className="w-full flex justify-start  ">
+            <span className="border-2 border-white p-2 mb-10">
+              {questions[questionNumber].tags[0]} :{" "}
+              {questions[questionNumber].level}
+            </span>
+          </div>
           <span className="font-semibold text-xl">
             Question {questionNumber + 1}/{questions.length}
           </span>

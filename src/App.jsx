@@ -10,6 +10,7 @@ import Home from "./Pages/Home.jsx";
 import { RequiresAuth } from "./Components/RequiresAuth.jsx";
 import { Result } from "./Pages/Result";
 import { LandingPage } from "./Pages/LandingPage";
+import { Rules } from "./Pages/Rules";
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
           element={
             <RequiresAuth>
               <Home />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/rules"
+          element={
+            <RequiresAuth>
+              <Rules />
             </RequiresAuth>
           }
         />

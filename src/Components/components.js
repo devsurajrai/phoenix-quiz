@@ -7,3 +7,4 @@ export { HomeMain } from "./HomeMain.jsx";
 export { PlayQuizMain } from "./PlayQuizMain.jsx";
 export { ResultMain } from "./ResultMain.jsx";
 export { LandingPageMain } from "./LandingPageMain.jsx";
+export { RulesMain } from "./RulesMain.jsx";

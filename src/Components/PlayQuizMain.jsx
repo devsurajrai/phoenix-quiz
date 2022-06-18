@@ -7,10 +7,15 @@ import { useEffect, useState } from "react";
 
 import { selectAuthInfo } from "../redux/slice/authSlice";
 import { useNavigate } from "react-router-dom";
-import { incrementScore, selectScore } from "../redux/slice/scoreSlice";
+import {
+  incrementScore,
+  setQuestions,
+  setPlayerAnswer,
+} from "../redux/slice/scoreSlice";
 const PlayQuizMain = () => {
   const dispatch = useDispatch();
   const { encodedToken } = useSelector(selectAuthInfo);
+
   const { questionsCategory, questionsLevel, questions } =
     useSelector(selectQuestionsData);
   const [questionNumber, setQuestionNumber] = useState(0);
@@ -22,11 +27,11 @@ const PlayQuizMain = () => {
   }, [encodedToken, questionsCategory, questionsLevel, dispatch]);
   const answerHandler = (answer, questionNumber) => {
     setSelectedAnswer(answer);
+    dispatch(setPlayerAnswer(answer));
     if (
       answer ===
       questions[questionNumber][questions[questionNumber].correct_option]
     ) {
-      console.log("incrementiong");
       dispatch(incrementScore());
     }
   };
@@ -93,7 +98,10 @@ const PlayQuizMain = () => {
           {questionNumber === questions.length - 1 ? (
             <button
               className="btn-sm-primary w-1/3 my-3"
-              onClick={() => navigate("/result")}
+              onClick={() => {
+                navigate("/result");
+                dispatch(setQuestions(questions));
+              }}
             >
               See Score
             </button>

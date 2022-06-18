@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className="flex flex-row justify-between items-end pb-4 px-4 h-16  bg-[#334E68] text-white">
       <section className="flex flex-row  items-end">
-        <Link to={`${isUserLoggedIn ? "/home" : "/"}`}>
+        <Link to="/">
           <h1 className="font-[roboto] font-black text-[1.5rem]  tracking-wide">
             PHOENIX <sub>QUIZ</sub>
           </h1>

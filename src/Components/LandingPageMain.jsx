@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { setScoreToDefault } from "../redux/slice/scoreSlice";
+import { useDispatch } from "react-redux";
 const LandingPageMain = () => {
+  const dispatch = useDispatch();
   return (
     <div className="flex justify-center items-center h-[calc(100vh-5rem)] bg-[#F0F4F8]">
       <section className=" antialiased flex flex-col gap-5 items-center">
@@ -12,7 +14,12 @@ const LandingPageMain = () => {
           Have Fun Testing Your Knowledge About HTML,CSS And Javascript
         </p>
         <Link to="/home">
-          <button className="btn-md-primary">Play Quiz</button>
+          <button
+            className="btn-md-primary"
+            onClick={() => dispatch(setScoreToDefault())}
+          >
+            Play Quiz
+          </button>
         </Link>
       </section>
     </div>

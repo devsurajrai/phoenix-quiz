@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button, Input } from "./components.js";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { signupFormHandlers } from "../utils/utils.js";
 import { useDispatch } from "react-redux";
 import { createUser, selectAuthInfo } from "../redux/slice/authSlice.js";
@@ -12,6 +12,7 @@ const SignupMain = () => {
   const dispatch = useDispatch();
   const authState = useSelector(selectAuthInfo);
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   // Reducer for Signup state management
   const initialState = {
@@ -91,14 +92,22 @@ const SignupMain = () => {
           callback={handleFormConfirmPassword}
           required
         />
+        <p className="self-start text-red-600">{error}</p>
         <Button
           btnType="primary"
           buttonText="Create Account"
           type="submit"
           callback={(e) =>
-            handleCreateAccountBtn(e, dispatch, createUser, signupFormState)
+            handleCreateAccountBtn(
+              e,
+              dispatch,
+              createUser,
+              signupFormState,
+              setError
+            )
           }
         />
+
         <Link to="/login">
           <span>Already Have an Account?</span>
           <button className="border-0 text-[#27AB83] ml-2 border-b-2 border-[#27AB83]">

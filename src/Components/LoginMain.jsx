@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { selectAuthInfo, loginUser } from "../redux/slice/authSlice.js";
-import { login } from "../utils/utils.js";
+import { login, loginAsGuest } from "../utils/utils.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const LoginMain = () => {
@@ -15,6 +15,7 @@ const LoginMain = () => {
   const [loginPass, setLoginPass] = useState("");
   const authState = useSelector(selectAuthInfo);
   const [passType, setPassType] = useState("password");
+  const [error, setError] = useState("");
   // The code below is for auto changing the password type to "password" from "text" after one second
   useEffect(() => {
     if (passType === "text")
@@ -58,20 +59,27 @@ const LoginMain = () => {
           required
           password
         />
+        <p className="self-start text-red-600">{error}</p>
         <div className="flex flex-col items-center w-full gap-5">
           <Button
             btnType="primary"
             buttonText="Login"
             type="submit"
             callback={(event) =>
-              login(dispatch, loginUser, event, loginEmail, loginPass)
+              login(dispatch, loginUser, event, loginEmail, loginPass, setError)
             }
           />
           <Button
             btnType="secondary"
             buttonText="Login As Guest "
             callback={(event) =>
-              login(dispatch, loginUser, event, "randoms@gmail.com", "acheDin")
+              loginAsGuest(
+                dispatch,
+                loginUser,
+                event,
+                "randoms@gmail.com",
+                "acheDin"
+              )
             }
           />
         </div>

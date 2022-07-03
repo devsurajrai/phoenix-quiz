@@ -17,10 +17,33 @@ export const signupFormHandlers = (dispatchSignupForm) => {
       payload: e.target.value,
     });
   };
-  const handleCreateAccountBtn = (e, dispatch, createUser, signupFormData) => {
-    const { firstName, lastName, email, password } = signupFormData;
+
+  const handleCreateAccountBtn = (
+    e,
+    dispatch,
+    createUser,
+    signupFormData,
+    setError
+  ) => {
+    const { firstName, lastName, email, password, confirmPassword } =
+      signupFormData;
     e.preventDefault();
-    dispatch(createUser({ firstName, lastName, email, password }));
+    if (!firstName) {
+      setError("Please enter firstname");
+    } else if (!lastName) {
+      setError("Please enter lastname");
+    } else if (!email || !email.includes("@") || !email.includes(".com")) {
+      setError("Please correct email");
+    } else if (!password) {
+      setError("Please enter password");
+    } else if (!confirmPassword) {
+      setError("Please enter password");
+    } else if (password !== confirmPassword) {
+      setError("Passwords does not match");
+    } else {
+      setError("");
+      dispatch(createUser({ firstName, lastName, email, password }));
+    }
   };
   return {
     handleFormFirstName,
